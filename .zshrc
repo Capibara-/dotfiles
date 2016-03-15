@@ -1,32 +1,3 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-#  ---------------------------------------------------------------------------
-#
-#  Description:  This file holds all my BASH configurations and aliases
-#
-#  Sections:
-#  1.   Environment Configuration
-#  2.   Make Terminal Better (remapping defaults and adding functionality)
-#  3.   File and Folder Management
-#  4.   Searching
-#  5.   Process Management
-#  6.   Networking
-#  7.   System Operations & Information
-#  8.   Web Development
-#  9.   Reminders & Notes
-#
-#  ---------------------------------------------------------------------------
-
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
@@ -176,28 +147,23 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 #   ------------------------------------------------------------
     alias ttop="top -R -F -s 10 -o rsize"
 
-#   my_ps: List processes owned by my user:
+#   Search process table:
 #   ------------------------------------------------------------
-    my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
-
-    #   Search process table:
-    #   ------------------------------------------------------------
     alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 #   ---------------------------
 #   6.  NETWORKING
 #   ---------------------------
 
-alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
-alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
-alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
-alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
-alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
-alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
-alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
-alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
-alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
-alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
+    alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
+    alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
+    alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
+    alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
+    alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
+    alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
+    alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
+    alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
+    alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
@@ -209,7 +175,7 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo -e "\n${RED}Machine stats :$NC " ; uptime
         echo -e "\n${RED}Current network location :$NC " ; scselect
         echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-        #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
+        echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
         echo
     }
 
@@ -218,7 +184,7 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   7.  SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
 
-alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when booted into single-user
+    alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when booted into single-user
 
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
@@ -242,8 +208,8 @@ alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when boo
 #   8.  WEB DEVELOPMENT
 #   ---------------------------------------
 
-alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
-httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
+    alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
+    httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
 
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
@@ -283,4 +249,5 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 export NVM_DIR="/Users/gabik/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# ALL HAIL THE MIGHTY GITGOAT!
 gitgoat

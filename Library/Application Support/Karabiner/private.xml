@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+  <name>keyboard app key to option_r, windows button to button 5</name>
+  <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
+  <autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::EXPOSE_ALL</autogen>
+</item>
+<item>
+  <name>Application (Menu) key to Command_R</name>
+  <identifier>private.application_key_to_command_r</identifier>
+  <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::COMMAND_R</autogen>
+</item>
+<item>
+  <name>Help (Insert) to Fn</name>
+  <identifier>private.insert_to_fn</identifier>
+  <autogen>__KeyToKey__ KeyCode::HELP, KeyCode::FN</autogen>
+</item>
+<item>
+  <name>Fn + F1 to Play/Pause Music</name>
+  <identifier>private.fn_f1_to_toggle_music</identifier>
+  <autogen>__KeyToKey__ KeyCode::F1, ModifierFlag::FN, KeyCode::VK_CONSUMERKEY_MUSIC_PLAY</autogen>
+</item>
+<item>
+  <name>Change F2 to Mute Audio</name>
+  <identifier>private.fn_f2_to_mute_audio</identifier>
+  <autogen>__KeyToKey__ KeyCode::F2, ModifierFlag::FN, KeyCode::VK_CONSUMERKEY_VOLUME_MUTE</autogen>
+</item>
+<item>
+  <name>Change F3 to Decrease Volume</name>
+  <identifier>private.fn_f3_to_decrease_volume</identifier>
+  <autogen>__KeyToKey__ KeyCode::F3, ModifierFlag::FN, KeyCode::VK_CONSUMERKEY_VOLUME_DOWN</autogen>
+</item>
+<item>
+  <name>Fn + F4 to Increase Volume</name>
+  <identifier>private.fn_f4_to_increase_volume</identifier>
+  <autogen>__KeyToKey__ KeyCode::F4, ModifierFlag::FN, KeyCode::VK_CONSUMERKEY_VOLUME_UP</autogen>
+</item>
+<item>
+  <name>Left ALT to COMMAND_L and vice versa</name>
+  <identifier>private.left_alt_to_command_l</identifier>
+  <autogen>__KeyToKey__ KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
+  <autogen>__KeyToKey__ KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+</item>
+<item>
+  <name> Right ALT to COMMAND_R and application to OPTION_R</name>
+  <identifier>private.right_alt_to_command</identifier>
+  <autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::COMMAND_R</autogen>
+  <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
+</item>
+<item>
+    <name>map sculpt back button</name>
+    <identifier>remap.sculpt.backbutton</identifier>
+    <autogen>__KeyToKey__ PointingButton::BUTTON4, KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+</item>
+<item>
+    <name>Map middle mouse to mission control</name>
+    <identifier>remap.middle_mouse_to_mission_control</identifier>
+    <autogen>__KeyToKey__ PointingButton::MIDDLE, KeyCode::EXPOSE_ALL</autogen>
+</item>
+</root>

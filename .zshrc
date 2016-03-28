@@ -1,3 +1,11 @@
+#
+# Executes commands at the start of an interactive session.
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
@@ -22,7 +30,7 @@
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
-alias mc='EDITOR=atom mc'
+alias mc='EDITOR=subl mc'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
@@ -36,7 +44,7 @@ alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
-alias edit='atom'                           # edit:         Opens any file in Atom editor
+alias edit='subl'                           # edit:         Opens any file in Sublime Text editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
@@ -56,6 +64,8 @@ alias mvn-cycle='mvn clean && mvn compile && mvn package'
 alias fix_git='eval $(ssh-agent) && ssh-add'
 alias gitgoat='curl -s http://whatthecommit.com/index.txt | goatsay'
 alias ssh='ssh -p 41278'
+alias urldecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print retval"'
+alias urlencode='python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument\"; print retval"'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -102,7 +112,7 @@ alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10
 
 
 #   ---------------------------
-#   4.  SEARCHING
+#   4   SEARCHING
 #   ---------------------------
 
 alias qfind="find . -name "                 # qfind:    Quickly search for file
@@ -179,7 +189,10 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
         echo
     }
 
-
+    startAgent() {
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa_wix
+    }
 #   ---------------------------------------
 #   7.  SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
@@ -249,5 +262,6 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 export NVM_DIR="/Users/gabik/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+zinc -start 1>/dev/null
 # ALL HAIL THE MIGHTY GITGOAT!
 gitgoat

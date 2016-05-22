@@ -1,20 +1,35 @@
+#  ---------------------------------------------------------------------------
 #
-# Executes commands at the start of an interactive session.
+#  Description:  This file holds all my BASH configurations and aliases
 #
+#  Sections:
+#  1.   Environment Configuration
+#  2.   Make Terminal Better (remapping defaults and adding functionality)
+#  3.   File and Folder Management
+#  4.   Searching
+#  5.   Process Management
+#  6.   Networking
+#  7.   System Operations & Information
+#  8.   Web Development
+#  9.   Reminders & Notes
+#
+#  ---------------------------------------------------------------------------
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
 
+#   Change Prompt
+#   ------------------------------------------------------------
+    # export PS1="___________________________________________\n| \w @ \h (\u) \n| => "
+    # export PS2="| => "
+    # export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+
+
 #   Set Paths
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin/"
-    export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home"
+    export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/Users/gabik/Scripts:$PATH"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -25,12 +40,18 @@ fi
 #   ------------------------------------------------------------
     export BLOCKSIZE=1k
 
+#   Add color to terminal
+#   (this is all commented out as I use Mac Terminal Profiles)
+#   from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
+#   ------------------------------------------------------------
+#   export CLICOLOR=1
+#   export LSCOLORS=ExFxBxDxCxegedabagacad
+
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
-alias mc='EDITOR=subl mc'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
@@ -38,21 +59,18 @@ alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias l='ls'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-alias ..='cd ../'                           # Go back 1 directory level
-alias ...='cd ../../'                       # Go back 2 directory levels
-alias .3='cd ../../../'                     # Go back 3 directory levels
-alias .4='cd ../../../../'                  # Go back 4 directory levels
-alias .5='cd ../../../../../'               # Go back 5 directory levels
-alias .6='cd ../../../../../../'            # Go back 6 directory levels
-alias edit='subl'                           # edit:         Opens any file in Sublime Text editor
+alias edit='atom'                           # edit:         Opens any file in Atom editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
+alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias grep='grep --color=auto'              # Colorize grep
 alias egrep='egrep --color=auto'            # Colorize grep
@@ -60,16 +78,17 @@ alias fgrep='fgrep --color=auto'            # Colorize grep
 alias now='date +"%T"'
 alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
-alias mvn-cycle='mvn clean && mvn compile && mvn package'
-alias fix_git='eval $(ssh-agent) && ssh-add'
-alias gitgoat='curl -s http://whatthecommit.com/index.txt | goatsay'
-alias ssh='ssh -p 41278'
-alias urldecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print retval"'
-alias urlencode='python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument\"; print retval"'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+
+#   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
+#           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
+#   --------------------------------------------------------------------
+    mans () {
+        man $1 | grep -iC2 --color=always $2 | less
+    }
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
@@ -112,7 +131,7 @@ alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10
 
 
 #   ---------------------------
-#   4   SEARCHING
+#   4.  SEARCHING
 #   ---------------------------
 
 alias qfind="find . -name "                 # qfind:    Quickly search for file
@@ -122,7 +141,7 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name end
 
 #   spotlight: Search for a file using MacOS Spotlight's metadata
 #   -----------------------------------------------------------
-spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+    spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 
 #   ---------------------------
@@ -157,23 +176,26 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 #   ------------------------------------------------------------
     alias ttop="top -R -F -s 10 -o rsize"
 
-#   Search process table:
+#   my_ps: List processes owned by my user:
 #   ------------------------------------------------------------
+    my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+
+    #   Search process table:
+    #   ------------------------------------------------------------
     alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 #   ---------------------------
 #   6.  NETWORKING
 #   ---------------------------
 
-    alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
-    alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
-    alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
-    alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
-    alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
-    alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
-    alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
-    alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
-    alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
+alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
+alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
 
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
@@ -185,51 +207,34 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
         echo -e "\n${RED}Machine stats :$NC " ; uptime
         echo -e "\n${RED}Current network location :$NC " ; scselect
         echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-        echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
+        #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
         echo
     }
 
-    startAgent() {
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_rsa_wix
-    }
+
 #   ---------------------------------------
 #   7.  SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
 
-    alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when booted into single-user
+alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when booted into single-user
 
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
     alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 
-#   finderShowHidden:   Show hidden files in Finder
-#   finderHideHidden:   Hide hidden files in Finder
-#   -------------------------------------------------------------------
-    alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
-    alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
-
-#   cleanupLS:  Clean up LaunchServices to remove duplicates in the "Open With" menu
-#   -----------------------------------------------------------------------------------
-    alias cleanupLS="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-#    screensaverDesktop: Run a screensaver on the Desktop
-#   -----------------------------------------------------------------------------------
-    alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
-
 #   ---------------------------------------
 #   8.  WEB DEVELOPMENT
 #   ---------------------------------------
 
-    alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
-    httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
+alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
+httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
 
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
 
 
-#   ---------------------------------------
+#
 #   9.  REMINDERS & NOTES
 #   ---------------------------------------
 
@@ -261,7 +266,3 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 export NVM_DIR="/Users/gabik/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-zinc -start 1>/dev/null
-# ALL HAIL THE MIGHTY GITGOAT!
-gitgoat

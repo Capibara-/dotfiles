@@ -57,4 +57,17 @@
     <identifier>remap.middle_mouse_to_mission_control</identifier>
     <autogen>__KeyToKey__ PointingButton::MIDDLE, KeyCode::EXPOSE_ALL</autogen>
 </item>
+<item>
+    <name>Map numpad keys to arrows not numbers</name>
+    <identifier>remap.numpad_keys_to_arrows</identifier>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_8, KeyCode::CURSOR_UP</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_2, KeyCode::CURSOR_DOWN</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_4, KeyCode::CURSOR_LEFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_6, KeyCode::CURSOR_RIGHT</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_0, KeyCode::T, ModifierFlag::CONTROL_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_7, KeyCode::HOME</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_9, KeyCode::PAGEUP</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_1, KeyCode::END</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_3, KeyCode::PAGEDOWN</autogen>
+</item>
 </root>

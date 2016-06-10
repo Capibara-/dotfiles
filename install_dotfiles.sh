@@ -6,9 +6,9 @@
 
 ########## Variables
 
-dir=~/git/dotfiles                # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zshrc"              # list of files/folders to symlink in homedir
+dir=~/git/dotfiles                                      # dotfiles directory
+olddir=~/dotfiles_old                                   # old dotfiles backup directory
+files="zshrc bashrc zprofile bash_profile"              # list of files/folders to symlink in homedir
 
 ##########
 

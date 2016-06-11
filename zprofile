@@ -2,6 +2,6 @@
 #
 #
 
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
+if [ -f ~/.zshrc ]; then
+  source ~/.zshrc
 fi

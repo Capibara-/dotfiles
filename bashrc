@@ -21,10 +21,14 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    export PS1="___________________________________________\n| \w @ \h (\u) \n| => "
-    export PS2="| => "
-    export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+    # export PS1="___________________________________________\n| \w @ \h (\u) \n| => "
+    # export PS2="| => "
+    # export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 #   Set Paths
 #   ------------------------------------------------------------
@@ -80,6 +84,7 @@ alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
 alias urlEncode='python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument.\"; print retval"'
 alias urlDecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print retval"'
+alias ssh='sshrc'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------

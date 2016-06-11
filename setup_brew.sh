@@ -16,7 +16,6 @@ for app in "ansible" \
            "gawk" \
            "git" \
            "gnu-tar" \
-           "htop-osx" \
            "httpie" \
            "ifstat" \
            "jq" \
@@ -28,6 +27,7 @@ for app in "ansible" \
            "titlecase" \
            "tree" \
            "vim" \
+           "htop" \
            "wget"; do
 
   brew install $app

@@ -7,7 +7,6 @@ alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ttop="top -R -F -s 10 -o rsize"
 
-
 extract () {
     if [ -f $1 ] ; then
       case $1 in
@@ -28,3 +27,5 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+echo "[*] .sshrc file loaded for session."

@@ -23,10 +23,7 @@ for app in "ansible" \
            "ruby" \
            "ssh-copy-id" \
            "sshrc" \
-           "tcpflow" \
-           "titlecase" \
            "tree" \
-           "vim" \
            "htop" \
            "wget"; do
 

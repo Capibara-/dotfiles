@@ -6,6 +6,7 @@ alias l='ls'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ttop="top -R -F -s 10 -o rsize"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 extract () {
     if [ -f $1 ] ; then
@@ -27,5 +28,7 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+zipf () { zip -r "$1".zip "$1" ; }          # Create a ZIP archive of a folder
 
 echo "[*] .sshrc file loaded for session."

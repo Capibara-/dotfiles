@@ -8,6 +8,10 @@ export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/s
 #   ------------------------------------------------------------
 export EDITOR=/usr/bin/nano
 
+# Set JAVA_OPTS for zinc compiler:
+# --------------------------------
+export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"
+
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
 #   ------------------------------------------------------------

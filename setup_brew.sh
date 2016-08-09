@@ -26,6 +26,7 @@ for app in "ansible" \
            "tree" \
            "htop" \
            "jq" \
+           "ag" \
            "wget"; do
 
   brew install $app

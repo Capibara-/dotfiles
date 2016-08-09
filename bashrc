@@ -12,6 +12,10 @@ export EDITOR=/usr/bin/nano
 # --------------------------------
 export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"
 
+# Set MAVEN_OPTS for maven:
+# -------------------------
+export MAVEN_OPTS="-Xmx8G -XX:MaxMetaspaceSize=1G -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC"`
+
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
 #   ------------------------------------------------------------

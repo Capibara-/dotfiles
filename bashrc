@@ -24,7 +24,7 @@ alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias l='ls'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-alias edit='atom'                           # edit:         Opens any file in Atom editor
+alias edit='subl'                           # edit:         Opens any file in Atom editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
@@ -59,7 +59,7 @@ alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden 
 alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
 alias make5mb='mkfile 5m ./5MB.dat'         # make5mb:      Creates a file of 5mb size (all zeros)
 alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10mb size (all zeros)
-alias mostRecet="ls -Art | tail -n 1" # Show most recent file in directory.
+alias latest="ls -Art | tail -n 1" # Show most recent file in directory.
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # lr:  Full Recursive Directory Listing
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete" # cleanupDS:  Recursively delete .DS_Store files
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder

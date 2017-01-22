@@ -9,6 +9,7 @@ fi;
 brew update
 
 for app in "ansible" \
+           "hub" \
 	         "bash" \
            "bash-completion" \
            "coreutils" \

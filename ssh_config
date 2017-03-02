@@ -1,0 +1,28 @@
+Host github.com-gabik
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_wix
+
+
+Host *.wixpress.com
+    Port 41278
+    User gabik
+
+Host *.wixprod.net
+    Port 41278
+    User gabik
+
+Host eggnog
+	HostName eggnog.wixpress.com
+	User root
+	Port 41278
+
+Host *.aus *.tam
+	HostName %h.wixpress.com
+	User gabik
+	Port 41278
+
+Host *
+	ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlMaster auto
+    ControlPersist 10m

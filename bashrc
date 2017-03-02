@@ -32,7 +32,6 @@ alias edit='subl'                           # edit:         Opens any file in At
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
@@ -51,6 +50,7 @@ alias ssh='sshrc'
 alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
+alias team-utils-venv="source team-utils/venv/bin/activate"
 
 
 #   showa: to remind yourself of an alias (given some part of it)

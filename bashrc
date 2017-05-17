@@ -103,6 +103,7 @@ alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only
 alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 
+# Autocomplete for wix team-utils:
 autoload bashcompinit && bashcompinit
 
 _wix_completion() {

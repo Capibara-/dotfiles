@@ -1,8 +1,8 @@
-echo "[*] Loading bashrc configuration."
+    echo "[*] Loading bashrc configuration."
 #   Set Paths
 #   ------------------------------------------------------------
 export PATH="$PATH:/usr/local/bin/"
-export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/Users/gabik/Scripts:$PATH"
+export PATH="/usr/local/bin:/sw/bin/:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/Users/gabik/Scripts:$PATH"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -50,13 +50,15 @@ alias ssh='sshrc'
 alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
-alias team-utils-venv="source team-utils/venv/bin/activate"
+alias team-utils-venv="source ~/git/team-utils/venv/bin/activate"
 
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
 showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
 
+# calc x-seen-by:
+xsb() { x-seen-by $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
 
 #   -------------------------------
 #    FILE AND FOLDER MANAGEMENT
@@ -100,3 +102,14 @@ alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open
 alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
 alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+
+autoload bashcompinit && bashcompinit
+
+_wix_completion() {
+    COMPREPLY=( $( env COMP_WORDS="${COMP_WORDS[*]}" \
+               COMP_CWORD=$COMP_CWORD \
+               _WIX_COMPLETE=complete $1 ) )
+    return 0
+}
+
+complete -F _wix_completion -o default wix;

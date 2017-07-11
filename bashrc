@@ -50,15 +50,13 @@ alias ssh='sshrc'
 alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
-alias team-utils-venv="source ~/git/team-utils/venv/bin/activate"
 
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
 showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
 
-# calc x-seen-by:
-xsb() { x-seen-by $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
+
 
 #   -------------------------------
 #    FILE AND FOLDER MANAGEMENT
@@ -102,6 +100,18 @@ alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open
 alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
 alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+
+
+#   ---------------------------
+#    Wix
+#   ---------------------------
+
+# calc x-seen-by:
+xsb() { x-seen-by $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
+
+alias team-utils-venv="source ~/git/team-utils/venv/bin/activate"
+
+compareDC() { echo "In 42 DC:" && wix meta-site get-ms -f 42 $1 | jq $2 && echo "\nIn AUS DC:" && wix meta-site get-ms -f aus $1 | jq $2 }
 
 # Autocomplete for wix team-utils:
 autoload bashcompinit && bashcompinit

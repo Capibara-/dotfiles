@@ -111,7 +111,7 @@ xsb() { x-seen-by $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
 
 alias team-utils-venv="source ~/git/team-utils/venv/bin/activate"
 
-compareDC() { echo "In 42 DC:" && wix meta-site get-ms -f 42 $1 | jq $2 && echo "\nIn AUS DC:" && wix meta-site get-ms -f aus $1 | jq $2 }
+get-ms() { wix meta-site get-ms $1 }
 
 # Autocomplete for wix team-utils:
 autoload bashcompinit && bashcompinit

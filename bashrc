@@ -113,6 +113,8 @@ alias team-utils-venv="source ~/git/team-utils/venv/bin/activate"
 
 get-ms() { wix meta-site get-ms $1 }
 
+curlo() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
+
 # Autocomplete for wix team-utils:
 autoload bashcompinit && bashcompinit
 

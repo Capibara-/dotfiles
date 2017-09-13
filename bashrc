@@ -1,25 +1,19 @@
-    echo "[*] Loading bashrc configuration."
+echo "[*] Loading bashrc configuration."
 #   Set Paths
 #   ------------------------------------------------------------
 export PATH="$PATH:/usr/local/bin/"
 export PATH="/usr/local/bin:/sw/bin/:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/Users/gabik/Scripts:$PATH"
 
-#   Set Default Editor (change 'Nano' to the editor of your choice)
-#   ------------------------------------------------------------
 export EDITOR=/usr/bin/nano
 
-# Set JAVA_OPTS for zinc compiler:
-# --------------------------------
 export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"
-
-# Set MAVEN_OPTS for maven:
-# -------------------------
 export MAVEN_OPTS="-Xmx8G -XX:MaxMetaspaceSize=1G -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC"
 
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
-#   ------------------------------------------------------------
 export BLOCKSIZE=1k
+
+export WORKON_HOME="/Users/gabik/.virtualenvs"
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation

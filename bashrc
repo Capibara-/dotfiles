@@ -101,9 +101,9 @@ alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listenin
 #   ---------------------------
 
 # calc x-seen-by:
-xsb() { x-seen-by $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
+xsb() { x-seen-by -d $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
 
-alias team-utils-venv="source ~/git/team-utils/venv/bin/activate"
+alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils/bin/activate"
 
 get-ms() { wix meta-site get-ms $1 }
 

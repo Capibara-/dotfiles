@@ -15,6 +15,7 @@ export BLOCKSIZE=1k
 
 export WORKON_HOME="/Users/gabik/.virtualenvs"
 
+alias http='http --headers'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation

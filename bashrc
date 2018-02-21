@@ -45,6 +45,7 @@ alias ssh='sshrc'
 alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
+alias tabulatecsv='tabulate -s, -1'
 
 
 #   showa: to remind yourself of an alias (given some part of it)

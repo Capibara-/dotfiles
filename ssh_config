@@ -23,6 +23,6 @@ Host *.aus *.tam
 	Port 41278
 
 Host *
-    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlPath ~/.ssh/%r@%h:%p
     ControlMaster auto
     ControlPersist 10m

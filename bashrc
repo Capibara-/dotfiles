@@ -47,7 +47,6 @@ alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
 alias tabulatecsv='tabulate -s, -1'
 
-
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
 showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
@@ -120,5 +119,7 @@ _wix_completion() {
                _WIX_COMPLETE=complete $1 ) )
     return 0
 }
+
+export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 
 complete -F _wix_completion -o default wix;

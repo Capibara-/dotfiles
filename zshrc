@@ -1,7 +1,7 @@
 echo "[*] Loading zshrc configuration."
 
 # Add brew python folder to path to take precedence:
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/bin:/sw/bin/:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/Users/gabik/Scripts:$PATH"
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then

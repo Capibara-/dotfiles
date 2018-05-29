@@ -1,9 +1,6 @@
 echo "[*] Loading bashrc configuration."
 #   Set Paths
 #   ------------------------------------------------------------
-export PATH="$PATH:/usr/local/bin/"
-export PATH="/usr/local/bin:/sw/bin/:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:/Users/gabik/Scripts:$PATH"
-
 export EDITOR=/usr/bin/nano
 
 export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"

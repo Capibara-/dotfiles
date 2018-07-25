@@ -13,12 +13,12 @@ export BLOCKSIZE=1k
 export WORKON_HOME="/Users/gabik/.virtualenvs"
 
 alias http='http --headers'
+alias git='hub'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias l='ls'
-alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias edit='code'                           # edit:         Opens any file in VSCode editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
@@ -43,12 +43,6 @@ alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
 alias tabulatecsv='tabulate -s, -1'
-
-#   showa: to remind yourself of an alias (given some part of it)
-#   ------------------------------------------------------------
-showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
-
-
 
 #   -------------------------------
 #    FILE AND FOLDER MANAGEMENT

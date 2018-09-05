@@ -43,6 +43,7 @@ alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
 alias tabulatecsv='tabulate -s, -1'
+bindkey '^R' history-incremental-pattern-search-backward
 
 #   -------------------------------
 #    FILE AND FOLDER MANAGEMENT

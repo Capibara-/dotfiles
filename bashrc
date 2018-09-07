@@ -31,6 +31,7 @@ alias ssh='sshrc'
 alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
+alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
 alias tabulatecsv='tabulate -s, -1'
 bindkey '^R' history-incremental-pattern-search-backward
 
@@ -61,17 +62,6 @@ extract () { # extract:  Extract most know archives with one command
          echo "'$1' is not a valid file"
      fi
 }
-
-
-#   ---------------------------
-#    NETWORKING
-#   ---------------------------
-alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
-alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
-alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
-alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
-alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
-
 
 #   ---------------------------
 #    Wix

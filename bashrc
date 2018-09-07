@@ -1,16 +1,9 @@
 echo "[*] Loading bashrc configuration."
-#   Set Paths
-#   ------------------------------------------------------------
+
 export EDITOR=/usr/bin/nano
-
-export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"
-export MAVEN_OPTS="-Xmx16G -XX:MaxMetaspaceSize=1G -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC"
-
-#   Set default blocksize for ls, df, du
-#   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
-export BLOCKSIZE=1k
-
-export WORKON_HOME="/Users/gabik/.virtualenvs"
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENV_PYTHON=/usr/local/bin/python
 
 alias http='http --headers'
 alias git='hub'
@@ -23,12 +16,8 @@ alias cd..='cd ../'                         # Go back 1 directory level (for fas
 alias edit='code'                           # edit:         Opens any file in VSCode editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
-alias c='clear'                             # c:            Clear terminal display
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
-alias show_options='shopt'                  # Show_options: display bash options settings
-alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
-alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias grep='grep --color=auto'              # Colorize grep
 alias egrep='egrep --color=auto'            # Colorize grep
 alias fgrep='fgrep --color=auto'            # Colorize grep
@@ -49,12 +38,9 @@ bindkey '^R' history-incremental-pattern-search-backward
 #    FILE AND FOLDER MANAGEMENT
 #   -------------------------------
 
-alias latest="ls -Art | tail -n 1" # Show most recent file in directory.
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # lr:  Full Recursive Directory Listing
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
-ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 extract () { # extract:  Extract most know archives with one command
     if [ -f $1 ] ; then
       case $1 in
@@ -80,8 +66,6 @@ extract () { # extract:  Extract most know archives with one command
 #   ---------------------------
 #    NETWORKING
 #   ---------------------------
-alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
-alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
 alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
 alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets

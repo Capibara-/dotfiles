@@ -4,6 +4,9 @@ export EDITOR=/usr/bin/nano
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export VIRTUALENV_PYTHON=/usr/local/bin/python
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export GOPATH=$HOME/go
+export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH:$GOPATH/bin
 
 alias http='http --headers'
 alias git='hub'
@@ -26,14 +29,20 @@ alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
 alias urlEncode='python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument.\"; print retval"'
 alias urlDecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print retval"'
+alias htmlDecode='python -c "import sys;from HTMLParser import HTMLParser; print(HTMLParser().unescape(sys.argv[1]))"'
 alias hexToIp='python -c "import sys;b=sys.argv[1].replace(\"0x\",\"\");print(\".\".join(map(lambda x: str(int(x, 16)), [b[i:i+2] for i in range(0,len(b), 2)])))"'
-alias ssh='sshrc' 
+#alias ssh='sshrc' 
 alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
 alias tabulatecsv='tabulate -s, -1'
+alias kc='kubectl config use-context '
+alias kn='kubectl config set-context --current --namespace '
+
 bindkey '^R' history-incremental-pattern-search-backward
+bindkey "\e\eOD" backward-word 
+bindkey "\e\eOC" forward-word
 
 #   -------------------------------
 #    FILE AND FOLDER MANAGEMENT

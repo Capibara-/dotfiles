@@ -39,6 +39,7 @@ alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out th
 alias tabulatecsv='tabulate -s, -1'
 alias kc='kubectl config use-context '
 alias kn='kubectl config set-context --current --namespace '
+alias run_buildozer='pbpaste | grep "^buildozer" | bash'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "\e\eOD" backward-word 

@@ -97,5 +97,6 @@ _wix_completion() {
 }
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+export LC_ALL="en_US.UTF-8"
 
 complete -F _wix_completion -o default wix;

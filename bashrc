@@ -82,7 +82,7 @@ xsb() { x-seen-by -d $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
 
 alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils/bin/activate"
 
-get-ms() { wix meta-site get-ms $1 }
+get-ms() { wix meta-site get-ms $1 | jq }
 
 curlo() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
 

@@ -8,7 +8,6 @@ export ANDROID_SDK=$HOME/Library/Android/sdk
 export GOPATH=$HOME/go
 export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH:$GOPATH/bin
 
-alias http='http --headers'
 alias git='hub'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -40,6 +39,7 @@ alias tabulatecsv='tabulate -s, -1'
 alias kc='kubectl config use-context '
 alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
+alias clear_maven='find . -name target -type d -prune -print -exec rm -rf {} \;'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "\e\eOD" backward-word 
@@ -83,6 +83,8 @@ xsb() { x-seen-by -d $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
 alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils/bin/activate"
 
 get-ms() { wix meta-site get-ms $1 | jq }
+
+request-id() { http https://www.wix.com/_serverless/logs-support/request-id/$1/}
 
 curlo() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
 

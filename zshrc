@@ -80,7 +80,7 @@ extract () { # extract:  Extract most know archives with one command
 # calc x-seen-by:
 xsb() { x-seen-by -d $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
 
-alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils/bin/activate"
+alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils-latest/bin/activate"
 
 get-ms() { wix meta-site get-ms $1 | jq }
 

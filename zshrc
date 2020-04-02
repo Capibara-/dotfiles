@@ -6,7 +6,8 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export VIRTUALENV_PYTHON=/usr/local/bin/python
 export ANDROID_SDK=$HOME/Library/Android/sdk
 export GOPATH=$HOME/go
-export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH:$GOPATH/bin
+export CLOUDSDK_PYTHON="/usr/local/bin/python2"
+export PATH="/usr/local/bin/python":"/usr/local/bin/python3":$ANDROID_SDK/emulator:$ANDROID_SDK/tools:"/usr/local/opt/ruby/bin":$PATH:$GOPATH/bin
 
 alias git='hub'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
@@ -78,7 +79,7 @@ extract () { # extract:  Extract most know archives with one command
 #   ---------------------------
 
 # calc x-seen-by:
-xsb() { x-seen-by -d $(http $1 --headers | grep X-Seen-By | awk '{print $2}') }
+xsb() { x-seen-by -d $(http $1 --headers | grep -i X-Seen-By | awk '{print $2}') }
 
 alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils-latest/bin/activate"
 
@@ -92,11 +93,7 @@ export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 export LC_ALL="en_US.UTF-8"
 
 # eval "$(_WIX_COMPLETE=source wix)"
-
-# Load nvm.
-export NVM_DIR="~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval $(thefuck --alias)
 
 # Source Prezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

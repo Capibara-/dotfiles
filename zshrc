@@ -18,7 +18,7 @@ alias l='ls'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias edit='code'                           # edit:         Opens any file in VSCode editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
-alias ~="cd ~"                              # ~:            Go Home
+# alias ~="cd ~"                              # ~:            Go Home
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
 alias grep='grep --color=auto'              # Colorize grep
@@ -32,7 +32,6 @@ alias urlDecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(s
 alias htmlDecode='python -c "import sys;from HTMLParser import HTMLParser; print(HTMLParser().unescape(sys.argv[1]))"'
 alias hexToIp='python -c "import sys;b=sys.argv[1].replace(\"0x\",\"\");print(\".\".join(map(lambda x: str(int(x, 16)), [b[i:i+2] for i in range(0,len(b), 2)])))"'
 #alias ssh='sshrc' 
-alias mci='mvn clean install'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
@@ -40,7 +39,8 @@ alias tabulatecsv='tabulate -s, -1'
 alias kc='kubectl config use-context '
 alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
-alias clear_maven='find . -name target -type d -prune -print -exec rm -rf {} \;'
+alias align-master='git checkout master  && git reset origin/master --hard && git pull'
+alias remove-dep="sed -i '' '/wix-acdc\/siteproperties/d'"
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "\e\eOD" backward-word 

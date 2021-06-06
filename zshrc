@@ -31,7 +31,6 @@ alias urlEncode='python -c "import sys, urllib as ul; retval = ul.quote_plus(sys
 alias urlDecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print(retval)"'
 alias htmlDecode='python -c "import sys;from HTMLParser import HTMLParser; print(HTMLParser().unescape(sys.argv[1]))"'
 alias hexToIp='python -c "import sys;b=sys.argv[1].replace(\"0x\",\"\");print(\".\".join(map(lambda x: str(int(x, 16)), [b[i:i+2] for i in range(0,len(b), 2)])))"'
-#alias ssh='sshrc' 
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
@@ -41,6 +40,8 @@ alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
 alias align-master='git checkout master  && git reset origin/master --hard && git pull'
 alias remove-dep="sed -i '' '/wix-acdc\/siteproperties/d'"
+alias curlh="curl -v -o /dev/null"
+
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "\e\eOD" backward-word 
@@ -85,7 +86,9 @@ alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils-latest/bin/ac
 
 get-ms() { wix meta-site get-ms $1 | jq }
 
-request-id() { http https://www.wix.com/_serverless/logs-support/request-id/$1/}
+request-id () {
+	curl -s https://www.wix.com/_serverless/logs-support/request-id/$1/ | jq '.grafana' | xargs '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+}
 
 curlo() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
 
@@ -97,7 +100,7 @@ eval $(thefuck --alias)
 
 # Source Prezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-source /Users/gabik/.bazelenv
+source "$HOME/.bazelenv"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gabik/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gabik/Downloads/google-cloud-sdk/path.zsh.inc'; fi

@@ -43,7 +43,6 @@ alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
 alias align-master='git checkout master  && git reset origin/master --hard && git pull'
 alias remove-dep="sed -i '' '/wix-acdc\/siteproperties/d'"
-alias curlh="curl -v -o /dev/null"
 
 
 bindkey '^R' history-incremental-pattern-search-backward
@@ -93,7 +92,7 @@ request-id () {
 	curl -s https://www.wix.com/_serverless/logs-support/request-id/$1/ | jq '.grafana' | xargs '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 }
 
-curlo() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
+curlh() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 export LC_ALL="en_US.UTF-8"
@@ -112,3 +111,6 @@ if [ -f '/Users/gabik/.config/wix/gcloud/google-cloud-sdk/completion.zsh.inc' ];
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$PATH:$HOME/.local/bin"
+
+source "$HOME/.bazelenv"
+tput smam

@@ -9,7 +9,6 @@ export EDITOR=/usr/bin/nano
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export VIRTUALENV_PYTHON=/usr/local/bin/python
-export HOMEBREW_GITHUB_API_TOKEN="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"
 export GOPATH=$HOME/go
 export CLOUDSDK_PYTHON="/usr/local/bin/python2"
 export PATH="/usr/local/bin/python":"/usr/local/bin/python3":$PATH:$GOPATH/bin

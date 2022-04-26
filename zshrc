@@ -13,6 +13,9 @@ export GOPATH=$HOME/go
 export CLOUDSDK_PYTHON="/usr/local/bin/python2"
 export PATH="/usr/local/bin/python":"/usr/local/bin/python3":$PATH:$GOPATH/bin
 
+# Import tokens
+source ~/.zsh_tokens
+
 alias git='hub'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -41,7 +44,6 @@ alias kc='kubectl config use-context '
 alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
 alias align-master='git checkout master  && git reset origin/master --hard && git pull'
-alias remove-dep="sed -i '' '/wix-acdc\/siteproperties/d'"
 
 
 bindkey '^R' history-incremental-pattern-search-backward

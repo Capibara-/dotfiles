@@ -30,9 +30,9 @@ alias fgrep='fgrep --color=auto'            # Colorize grep
 alias now='date +"%T"'
 alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
-alias urlEncode='python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument.\"; print(retval)"'
-alias urlDecode='python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print(retval)"'
-alias htmlDecode='python -c "import sys;from HTMLParser import HTMLParser; print(HTMLParser().unescape(sys.argv[1]))"'
+alias urlEncode='python -c "import sys, urllib.parse as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument.\"; print(retval)"'
+alias urlDecode='python -c "import sys, urllib.parse as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print(retval)"'
+alias htmlDecode='python -c "import sys;import html; print(html.unescape(sys.argv[1]))"'
 alias hexToIp='python -c "import sys;b=sys.argv[1].replace(\"0x\",\"\");print(\".\".join(map(lambda x: str(int(x, 16)), [b[i:i+2] for i in range(0,len(b), 2)])))"'
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # Search process table:
@@ -80,9 +80,6 @@ extract () { # extract:  Extract most know archives with one command
 #    Wix
 #   ---------------------------
 
-# calc x-seen-by:
-xsb() { x-seen-by -d $(http $1 --headers | grep -i X-Seen-By | awk '{print $2}') }
-
 alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils-latest/bin/activate"
 
 get-ms() { wix meta-site get-ms $1 | jq }
@@ -95,8 +92,6 @@ curlh() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 export LC_ALL="en_US.UTF-8"
-
-eval $(thefuck --alias)
 
 # Source Prezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

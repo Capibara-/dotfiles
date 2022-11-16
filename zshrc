@@ -1,3 +1,8 @@
+ export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -44,7 +49,7 @@ alias kc='kubectl config use-context '
 alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
 alias align-master='git checkout master  && git reset origin/master --hard && git pull'
-
+alias pbminify='pbpaste | jq -r tostring | pbcopy'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "\e\eOD" backward-word 

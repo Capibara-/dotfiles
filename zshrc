@@ -17,6 +17,7 @@ export VIRTUALENV_PYTHON=/usr/local/bin/python
 export GOPATH=$HOME/go
 export CLOUDSDK_PYTHON="/usr/local/bin/python2"
 export PATH="/usr/local/bin/python":"/usr/local/bin/python3":$PATH:$GOPATH/bin
+export JAVA_HOME="/usr/bin/java"
 
 # Import tokens
 source ~/.zsh_tokens

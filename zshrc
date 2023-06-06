@@ -51,6 +51,7 @@ alias kn='kubectl config set-context --current --namespace '
 alias run_buildozer='pbpaste | grep "^buildozer" | bash'
 alias align-master='git checkout master  && git reset origin/master --hard && git pull'
 alias pbminify='pbpaste | jq -r tostring | pbcopy'
+alias glog='git log --oneline --decorate --graph'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey "\e\eOD" backward-word 

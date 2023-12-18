@@ -12,10 +12,10 @@ fi
 
 export EDITOR=/usr/bin/nano
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-export VIRTUALENV_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENV_PYTHON=/usr/bin/python3
 export GOPATH=$HOME/go
-export CLOUDSDK_PYTHON="/usr/local/bin/python2"
+export CLOUDSDK_PYTHON="/usr/bin/python3"
 export PATH="/usr/local/bin/python":"/usr/local/bin/python3":$PATH:$GOPATH/bin
 export JAVA_HOME="/usr/bin/java"
 

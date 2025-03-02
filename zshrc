@@ -1,3 +1,4 @@
+source ~/.secrets
 export EDITOR=/usr/bin/nano
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -84,7 +85,7 @@ request-id () {
 }
 
 dump-key-vi-cache () {
-  curl --compressed http://$1:8080/$2 -H'x-wix-key-vi-proxy-secret:ab81f2c1-2c86-4bfa-8a29-b5b04b78a5eb'
+  curl --compressed http://$1:8080/$2 -H"x-wix-key-vi-proxy-secret:$KEY_VI_PROXY_SECRET"
 }
 
 curlh() { curl -sS -v -o /dev/null $@ 2>&1 | x-seen-by; }

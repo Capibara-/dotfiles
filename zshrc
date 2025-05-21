@@ -80,7 +80,7 @@ alias team-utils-venv="source /Users/gabik/.virtualenvs/team-utils-latest/bin/ac
 
 get-ms() { wix meta-site get-ms $1 | jq }
 
-request-id () {
+reqid () {
 	curl -s https://www.wix.com/_serverless/logs-support/request-id/$1/ | jq '.grafana' | xargs '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 }
 
